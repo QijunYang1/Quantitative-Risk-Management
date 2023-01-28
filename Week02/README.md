@@ -19,3 +19,5 @@
   
  ## Ways to run my code
   - run the code in juypter notebook (`pip install jupyter notebook` on your terminal if you have not installed it.)
+  - runipy .ipynb in your terminal (`pip3 install runipy` if you have not installed it.)
+  - use ipython to run my code
