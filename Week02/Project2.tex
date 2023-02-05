@@ -1,4 +1,11 @@
+
 \documentclass[11pt,en]{elegantpaper}
+
+\title{Quantitative Risk Management Project 2}
+\author{Qijun Yang \\ Duke University}
+\institute{\href{https://fintech.meng.duke.edu}{Financial Technology of Duke}}
+\version{1.0}
+\date{Jan. 29, 2023}
 
 % cmd for this doc
 \usepackage{array}
@@ -6,7 +13,7 @@
 
 \addbibresource[location=local]{reference.bib} % reference file
 \begin{document}
-
+\maketitle
 
 \section*{\textcolor{orange}{Problem 1}}
 Remember from last week we discussed that skewness and kurtosis functions in statistical packages 
@@ -14,11 +21,10 @@ are often biased. Is your function biased? Prove or disprove your hypothesis.
 
 \section*{\textcolor{orange}{Answer}}
 The python has both unbiased and biased estimator of skewness and kurtosis. The difference between the unbiased kurtosis estimator and the biased kurtosis estimator 
-is significant. \textbf{The biased kurtosis estimator is rejected when the sample size is small, 
-but as the sample size increases, the biased kurtosis estimator becomes statistically 
-significant. Even though the result of the kurtosis estimator is reasonable, the difference 
+is significant. \textbf{The biased kurtosis estimator is biased when the sample size is small, 
+but as the sample size increases, the biased kurtosis estimator becomes unbiased. Even though the result of the kurtosis estimator is reasonable, the difference 
 between the unbiased skewness estimator and the biased skewness estimator is very small. 
-Both are statistically significant in the experiment.} There are some possible reasons for this, 
+Both are unbiased in the experiment.} There are some possible reasons for this, 
 which I will discuss in the following analysis.
 
 \subsection*{1. Background}
