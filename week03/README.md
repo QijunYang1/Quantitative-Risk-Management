@@ -1,4 +1,4 @@
-# Project 2
+# Project 3
  
 ## Guide
   - [Project3 Code](https://github.com/QijunYang1/Fintech-545/blob/main/week03/project3.ipynb) is my code
