@@ -4,7 +4,7 @@
   - [Project4 Code](https://github.com/QijunYang1/Fintech-545/blob/main/week04/Project-4.ipynb) is my code
   - [Project4 Answer](https://github.com/QijunYang1/Fintech-545/blob/main/week04/week4.pdf) is my answer
   - [Project4 Requirement](https://github.com/QijunYang1/Fintech-545/blob/main/week04/Project%20Week%2004.pdf) is the reqiurement for this project
-  - [Project4 Return Dataset](https://github.com/QijunYang1/Fintech-545/blob/main/week04/DailyPrices.csv) is the the dataset for this project
+  - [Project4 Price Dataset](https://github.com/QijunYang1/Fintech-545/blob/main/week04/DailyPrices.csv) is the the dataset for this project
   - [Project4 Portfolio Dataset](https://github.com/QijunYang1/Fintech-545/blob/main/week04/portfolio.csv) is the the dataset for this project
   - [Project4 Answer data](https://github.com/QijunYang1/Fintech-545/blob/main/week04/Validation.xlsx) is the the the data derived from the modle building
   - [Project4 LaTex Code](https://github.com/QijunYang1/Fintech-545/blob/main/week04/week4.tex) is the the the data derived from the modle building
