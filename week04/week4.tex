@@ -1,5 +1,4 @@
 \documentclass[11pt,en]{elegantpaper}
-
 \title{Quantitative Risk Management Project 4}
 \author{Qijun Yang \\ Duke University}
 \institute{\href{https://fintech.meng.duke.edu}{Financial Technology at Duke University}}
@@ -25,7 +24,7 @@ Calculate and compare the expected value and standard deviation of price at time
 
 \textbf{\textcolor{brown}{1. Classical Brownian Motion: }}
 
-\textbf{Model: }:
+\textbf{Model: }
 \[P_t=P_{t-1}+r_t\]
 
 \textbf{1. Time period = 1 (a.k.a given $P_{t-1}$):}
@@ -93,7 +92,6 @@ We can also see from the graph that when the period is 1, the end date price $P_
 \begin{table}[htbp]
     \centering
     \caption{Time period = 1}
-    \label{table1}
     \begin{tabular}{@{}ccccc@{}}
         \toprule
         \textbf{Moments} & \textbf{Items} & \textbf{Classical Brownian Motion} & \textbf{Arithmetic Return} & \textbf{Log Return}\\
@@ -124,7 +122,6 @@ All of above results match our expectation and validate our hypothesis.
 \begin{table}[htbp]
     \centering
     \caption{Time period = 100}
-    \label{table2}
     \begin{tabular}{@{}ccccc@{}}
         \toprule
         \textbf{Moments} & \textbf{Items} & \textbf{Classical Brownian Motion} & \textbf{Arithmetic Return} & \textbf{Log Return}\\
@@ -170,7 +167,7 @@ Use return\_calculate function to get the return of each stocks then we use 5 me
 
 \subsection*{\textcolor{orange}{1. Normal Distribution}}
 
-Assuming returns follow Normal Distribution whose mean is 0, we just need to calculate the standard deviation to understand the whole distribution. Then we get the VaR: \textbf{0.065601} or \textbf{6.5601\%} 
+Assuming returns follow Normal Distribution whose mean is 0, we just need to calculate the standard deviation to understand the whole distribution. Then we get the VaR: \textbf{6.5601\%}.
 
 Compared with historical kernel density estimate, the normal returns has higher VaR and heavier tail.
 \begin{figure}[htbp] 
@@ -180,9 +177,11 @@ Compared with historical kernel density estimate, the normal returns has higher 
 
 \subsection*{\textcolor{orange}{2. normal distribution with an Exponentially Weighted variance $\lambda$ = 0. 94}}
 
-Assuming returns follow Normal Distribution whose mean is 0, we use differnet method to calculate the standard deviation. We put more weight on cuurent information to influence the construction of volatility. Then we get the VaR: \textbf{0.091385} or \textbf{9.1385\%} 
+Assuming returns follow Normal Distribution whose mean is 0, we use differnet method to calculate the standard deviation. We put more weight on cuurent information to influence the construction of volatility. Then we get the VaR: \textbf{9.1385\%}
 
-Compared with historical kernel density estimate, the normal distribution with an Exponentially Weighted variance makes returns has much heavier tail than normal. The reason why this may happen is because we put more weight on current information and recently volatility is higher than before.
+Compared with historical kernel density estimate, the normal distribution with an Exponentially Weighted variance makes returns has much heavier tail than normal. 
+
+The reason why this may happen is because we put more weight on current information and recently volatility is higher than before.
 
 \begin{figure}[htbp] 
     \centering 
@@ -191,9 +190,10 @@ Compared with historical kernel density estimate, the normal distribution with a
 
 \subsection*{\textcolor{orange}{3. MLE fitted T distribution}}
 
-Assuming returns follow T distribution whose mean is 0, we use MLE to estimate its degree of freedom and variance to get the whole distribution.  Then we get the VaR: \textbf{0.091385} or \textbf{9.1385\%} 
+Assuming returns follow T distribution whose mean is 0, we use MLE to estimate its degree of freedom and variance to get the whole distribution.  Then we get the VaR: \textbf{5.7256\%}
 
 As to T distribution, it's more sharp and its tail is thinner. Its VaR is lower than above estimator.
+
 \begin{figure}[htbp] 
     \centering 
     \includegraphics[width=0.6\textwidth]{./image/T.png} 
@@ -202,27 +202,46 @@ As to T distribution, it's more sharp and its tail is thinner. Its VaR is lower 
 
 \subsection*{\textcolor{orange}{4. Fitted AR(1) model}}
 
-Assuming returns follow AR(1) model, we use MLE to estimate its cofficience of Lag 1 and variance of its error term. After finish that, then we get the VaR: \textbf{0.065705} or \textbf{6.5705\%} 
+Assuming returns follow AR(1) model, we use MLE to estimate its cofficience of Lag 1 and variance of its error term. After finish that, then we get the VaR: \textbf{6.5705\%}
 
 In fact, AR(1) model is normal distribution.
 \[AR(1):X_t=\phi_1X_{t-1}+\varepsilon_t, \quad \{\epsilon_t\}\sim WN(0,\sigma^2)\]
 \[AR(1):X_t=\varepsilon_t+\phi_1\varepsilon_t+\phi_1^2\varepsilon_t+\cdots \sim WN(0,\frac{1}{1-\varepsilon_t}\sigma^2)\]
 
 With such knowledge, it makes sense that its curve is so similar to Normal Distribution. Also, its VaR is little higher than historical estimator.
+
 \begin{figure}[htbp] 
     \centering 
     \includegraphics[width=0.6\textwidth]{./image/AR1.png} 
 \end{figure}
 
+
 \subsection*{\textcolor{orange}{{5. Historic Simulation}}}
 
- We fetch sample from the previous return data and simulate. Then then we get the VaR: \textbf{0.063881} or \textbf{6.3881\%} 
+ We fetch sample from the previous return data and simulate. Then then we get the VaR: \textbf{6.1604\%} 
 
 Its curve is almost same as historical kernel density estimate.
 \begin{figure}[htbp] 
     \centering 
     \includegraphics[width=0.6\textwidth]{./image/historic.png} 
 \end{figure}
+
+
+\subsection*{\textcolor{orange}{Conclusion:}}
+If we put all the VaRs on the same chart, we could see that Normal+EWMA has the most VaR and MLE fitted T has the least VaR. 
+
+I think the real VaR is between Normal+EWMA VaR and Historical Simulation VaR. Historical Simulation has no assumption of return distribution, but it averages its weights equally to each day. Normal+EWMA gives more weight to more recent information. The market is always changing and it makes sense to pay more attention to the current situation. Combining these two, we could estimate the real VaR.
+\begin{table}[htbp]
+    \centering
+    \caption{VaR of each method}
+    \begin{tabular}{@{}cccccc@{}}
+        \toprule
+        \textbf{} & \textbf{Normal} & \textbf{Normal+EWMA} & \textbf{MLE fitted T} & \textbf{AR(1)}&\textbf{Historical Simulation}\\
+        \midrule
+        VaR & 6.5601\%  & 9.1385\% & 5.7256\% & 6.5705\% & 6.1604\% \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \newpage
 \section*{\textcolor{orange}{Problem 3}}
@@ -242,22 +261,73 @@ Choose a different model for returns and calculate VaR again. Why did you choose
 
 \subsection*{\textcolor{orange}{1. normal distribution with an Exponentially Weighted variance $\lambda$ = 0. 94}}
 
-We seperately calculate the VaR of Portfolio A, B, C and all of them as a whole. Let's Look at the following results:
+\subsubsection*{\textcolor{orange}{1.1 Delta Normal Method}}
+
+Since our asset is stock, which means that its derivative on the price is just 1, it's easy for us to calculate the VaR using a closed-form formula. We calculate the VaR of Portfolio A, B, C and all of them as a whole separately. Let's look at the following results:
 
 \begin{table}[htbp]
     \centering
     \caption{VaR of Portfolio}
-    \label{table3}
     \begin{tabular}{@{}ccccc@{}}
         \toprule
         \textbf{} & \textbf{portfolio A} & \textbf{portfolio B} & \textbf{portfolio C} & \textbf{Total portfolio}\\
         \midrule
-        VaR & 27411.0114  & 26902.5011 & 24677.9318 & 78991.4444 \\
+        VaR & 5670.20  & 4494.59 & 3786.58 & 13577.07 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-Portfolio A has most VaR so its risk is most high. We could see from above chart that risk of A is bigger than B, C, risk of B is higher than C.
+Portfolio A has the highest VaR, so its risk is the highest. We could see from the above chart that risk of A is greater than B, C, risk of B is higher than C.
+
+\subsubsection*{\textcolor{orange}{1.2 Normal Monte Carlo}}
+
+Then, we could also use EWMA covariance and PCA Normal Monte Carlo to generate simulated returns. Use those return we calculate the simulated price of each stock and combine them together to get the simulated value of portfolio. Here is results:
+
+\begin{table}[htbp]
+    \centering
+    \caption{VaR of Portfolio}
+    \begin{tabular}{@{}ccccc@{}}
+        \toprule
+        \textbf{} & \textbf{portfolio A} & \textbf{portfolio B} & \textbf{portfolio C} & \textbf{Total portfolio}\\
+        \midrule
+        VaR & 5678.98  & 4492.44 & 3775.87 & 13570.22 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\begin{figure}[htbp] 
+    \centering 
+    \includegraphics[width=0.6\textwidth]{./image/MC_A.png} 
+\end{figure}
+
+
+\begin{figure}[htbp] 
+    \centering 
+    \includegraphics[width=0.6\textwidth]{./image/MC_B.png} 
+\end{figure}
+
+
+\begin{figure}[htbp] 
+    \centering 
+    \includegraphics[width=0.6\textwidth]{./image/MC_C.png} 
+\end{figure}
+
+
+\begin{figure}[htbp] 
+    \centering 
+    \includegraphics[width=0.6\textwidth]{./image/MC_ALL.png} 
+\end{figure}
+
+We found that the VaR calculated by Delta Normal and Normal Monte Carlo are very close. These two methods validate each other.
+
+For Delta Normal, if we add up the VaR of A,B,C, we could find it to be
+equal to 13951.37, which is greater than the VaR of the entire portfolio. 
+
+For Normal Monte Carlo, if we add up the VaR of A,B,C, we could find it
+equal to 13947.27, which is also greater than the VaR of the entire portfolio. 
+
+The above analysis shows that VaR doesn't have subadditivity, so it is not a coherent risk measure.
 
 \subsection*{\textcolor{orange}{2. Historic Simulation}}
 
@@ -268,17 +338,37 @@ Here is result:
 \begin{table}[htbp]
     \centering
     \caption{VaR of Portfolio}
-    \label{table4}
     \begin{tabular}{@{}ccccc@{}}
         \toprule
         \textbf{} & \textbf{portfolio A} & \textbf{portfolio B} & \textbf{portfolio C} & \textbf{Total portfolio}\\
         \midrule
-        VaR & 10379.8217  & 9303.8174 & 8043.3187 & 28193.7417 \\
+        VaR & 9070.10  & 7351.16 & 5802.652 & 21275.01 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-It's much less than the normal distribution with an Exponentially Weighted variance. Such phenonmenon corresponds with Problem2 that
-Normal Distributio with an Exponentially Weighted variance has much heavier tail.
+\begin{figure}[htbp] 
+    \centering 
+    \includegraphics[width=0.6\textwidth]{./image/His_A.png} 
+\end{figure}
+
+\begin{figure}[htbp] 
+    \centering 
+    \includegraphics[width=0.6\textwidth]{./image/His_B.png} 
+\end{figure}
+
+\begin{figure}[htbp] 
+    \centering 
+    \includegraphics[width=0.6\textwidth]{./image/His_C.png} 
+\end{figure}
+
+\begin{figure}[htbp] 
+    \centering 
+    \includegraphics[width=0.6\textwidth]{./image/His_ALL.png} 
+\end{figure}
+
+We could see that the historical VaR is much larger than the above estimator. It indicates that the normal assumption underestimates the probability of extreme events. In other words, the normal distribution cannot capture the heavy tail of the real return distribution. 
+
+I prefer historical VaR because it's easy to implement and use. However, if we don't have enough data, it would have more bias.
 
 \end{document}
