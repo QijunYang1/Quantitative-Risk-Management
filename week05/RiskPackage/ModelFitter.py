@@ -125,7 +125,11 @@ class T(FittedModel):
         '''set the initial parameters and cons to call the father's fit'''
         # degree of freedom of t should be greater than 2; standard deviation is non-negative
         cons=[ {'type':'ineq', 'fun':lambda x:x[0]-2} , {'type':'ineq', 'fun':lambda x:x[2]} ] 
-        x0 = np.array([2,0,1]) # initial parameter
+        mu=data.mean()
+        df=6/stats.kurtosis(data,bias=False)+4
+        df = 2.5 if df<=2 else df
+        std=np.sqrt(data.var()*df/(df-2))
+        x0 = np.array([df,mu,std]) # initial parameter
         super().fit(data,x0,cons)
 
 '''
@@ -147,5 +151,9 @@ class T_mean0(FittedModel):
         '''set the initial parameters and cons to call the father's fit'''
         # degree of freedom of t should be greater than 2; standard deviation is non-negative
         cons=[ {'type':'ineq', 'fun':lambda x:x[0]-2} , {'type':'eq', 'fun':lambda x:x[1]},{'type':'ineq', 'fun':lambda x:x[2]} ] 
-        x0 = np.array([2,0,1]) # initial parameter
+        mu=data.mean()
+        df=6/stats.kurtosis(data,bias=False)+4
+        df = 2.5 if df<=2 else df
+        std=np.sqrt(data.var()*df/(df-2))
+        x0 = np.array([df,mu,std]) # initial parameter
         super().fit(data,x0,cons)
