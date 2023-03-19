@@ -10,7 +10,7 @@
   - [Project5 Portfolio Dataset](https://github.com/QijunYang1/Fintech-545/blob/main/week04/portfolio.csv) is the the dataset for this project
   - [Project5 DailyReturn Dataset](https://github.com/QijunYang1/Fintech-545/blob/main/week05/DailyReturn.csv) is the the dataset for this project
   - [Project5 Problem1 Dataset](https://github.com/QijunYang1/Fintech-545/blob/main/week05/problem1.csv) is the the dataset for this project
-  - [Project5 LaTex Code](https://github.com/QijunYang1/Fintech-545/blob/main/week05/wee5.tex) is the the the data derived from the modle building
+  - [Project5 LaTex Code](https://github.com/QijunYang1/Fintech-545/blob/main/week05/wee5.tex) is tex file for my pdf.
  
  ## Ways to run my code
   - run the code in juypter notebook (`pip install jupyter notebook` on your terminal if you have not installed it.)
