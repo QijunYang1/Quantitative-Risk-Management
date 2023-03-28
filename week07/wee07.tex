@@ -1,0 +1,262 @@
+\documentclass[11pt,en]{elegantpaper}
+\title{Quantitative Risk Management Project 7}
+\author{Qijun Yang \\ Duke University}
+\institute{\href{https://fintech.meng.duke.edu}{Financial Technology at Duke University}}
+\version{1.0}
+\date{Mar. 25, 2023}
+
+% cmd for this doc
+\usepackage{array}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{multirow}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+
+\addbibresource[location=local]{reference.bib} % reference file
+\begin{document}
+\maketitle
+
+\section*{\textcolor{orange}{Problem 1}}
+
+\begin{itemize}
+    \item Current Stock Price \$165
+    \item Strike Price \$165
+    \item Current Date 03/13/2022
+    \item Options Expiration Date 04/15/2022
+    \item Risk Free Rate of 4.25\%
+    \item Continuously Compounding Coupon of 0.53\%
+    \item implied volatility 20\%
+\end{itemize}
+
+Implement the closed form greeks for GBSM. Implement a finite difference derivative calculation.
+
+Compare the values between the two methods for both a call and a put.
+
+Implement the binomial tree valuation for American options with and without discrete dividends. 
+
+Assume the stock above:
+
+\begin{itemize}
+    \item Pays dividend on 4/11/2022 of \$0.88
+\end{itemize}
+
+Calculate the value of the call and the put. Calculate the Greeks of each.
+
+
+\section*{\textcolor{orange}{Answer}}
+
+As to first problem, I compare the effect of the greeks closed form of Gengeralized Black Scholes Model and  finite difference methods for European options. The results are following:
+
+\begin{table}[htbp]
+    \centering
+    \caption{Greeks: Closed Form Vs. Finite Differnece}
+    \begin{tabular}{@{}cccccccc@{}}
+        \toprule
+        \textbf{} &  & \textbf{Detla} & \textbf{Gamma} & \textbf{Vega} & \textbf{Theta} & \textbf{Rho} & \textbf{Carry Rho} \\
+        \midrule
+        Closed Form & Call & 0.534009 & 0.040038 & 19.71018 & -24.89852 & 7.583586 & 7.966246 \\
+        & Put & -0.465512 & 0.040038 & 19.71018 & -18.787 & -7.277011 & -6.944416 \\
+       Finite Difference & Call & 0.534009 & 0.040038 & 19.7101 & -24.93221 & 7.583554 & 7.966254 \\
+        & Put & -0.465512 & 0.040038 & 19.7101 & -18.82068 & -7.277045 & -6.944409\\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\newpage
+
+As we could see, the greeks of European options from cloesd form and finite difference is very similar. The difference between the two is very small. 
+
+Use the binomial tree methods to calculate the value and greeks of call and put American options(consider whether there is continuously compounding coupon or not):
+
+\begin{table}[htbp]
+    \centering
+    \caption{Greeks: American Option with Continuously Compounding Coupon}
+    \begin{tabular}{@{}ccccc@{}}
+    \toprule
+                                                                                       & \multicolumn{2}{c}{Without Discrete Dividend} & \multicolumn{2}{c}{With Discrete Dividend} \\
+                                                                                       & Call                  & Put                   & Call                 & Put                 \\
+                                                                                       \midrule
+    \textbf{Valuation}                                                                 & 4.227506              & 3.714324              & 4.074976             & 4.147062            \\
+    \textbf{Detla}                                                                     & 0.533966              & -0.473668             & 0.530507             & -0.495856           \\
+    \textbf{Gamma}                                                                     & 0.280568              & 0.246837              & 0.031063             & 0.002387            \\
+    \textbf{Vega}                                                                      & 19.685473             & 19.655211             & 19.576769            & 19.815527           \\
+    \textbf{Theta}                                                                     & -24.904878            & -19.299822            & -24.464277           & -18.948359          \\
+    \textbf{Rho}                                                                       & 7.583365              & -5.980132             & 6.797344             & -7.248928           \\
+    \textbf{Carry Rho}                                                                 & 7.965619              & -5.738138             & 7.123061             & -6.913934           \\
+    \textbf{\begin{tabular}[c]{@{}c@{}}Sensitivity to Dividend Amount\end{tabular}} & NaN                   & NaN                   & -0.115203            & 0.515291            \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Greeks: American Option without Continuously Compounding Coupon}
+    \begin{tabular}{@{}ccccc@{}}
+    \toprule
+                                                                                       & \multicolumn{2}{c}{Without Discrete Dividend} & \multicolumn{2}{c}{With Discrete Dividend} \\
+                                                                                       & Call                  & Put                   & Call                 & Put                 \\
+                                                                                       \midrule
+                                                                                       & Call                                        & Put                                        & Call                                      & Put                                       \\
+                                                                                       \textbf{Valuation}                                                                 & 4.269859                                    & 3.684138                                   & 4.112836                                  & 4.110535                                  \\
+                                                                                       \textbf{Detla}                                                                     & 0.537384                                    & -0.471987                                  & 0.532904                                  & -0.493280                                 \\
+                                                                                       \textbf{Gamma}                                                                     & 0.280501                                    & 0.242952                                   & 0.021277                                  & 0.003252                                  \\
+                                                                                       \textbf{Vega}                                                                      & 19.680769                                   & 19.642167                                  & 19.574566                                 & 19.824035                                 \\
+                                                                                       \textbf{Theta}                                                                     & -25.388799                                  & -18.988711                                 & -24.897100                                & -18.573133                                \\
+                                                                                       \textbf{Rho}                                                                       & 7.630524                                    & -5.896065                                  & 6.834995                                  & -7.202673                                 \\
+                                                                                       \textbf{Carry Rho}                                                                 & 8.016606                                    & -5.659202                                  & 7.163720                                  & -6.870814                                 \\
+                                                                                       \textbf{\begin{tabular}[c]{@{}c@{}}Sensitivity to Dividend Amount\end{tabular}} & NaN                                         & NaN                                        & -0.115497                                 & 0.512470                                  \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+We vary the changing amount of all variable to better make our sensitivity reasonable. Finally, we set the amount the price change is \$0.2 and all the other changing amount is 0.01. 
+
+
+
+
+\newpage
+\section*{\textcolor{orange}{Problem 2}}
+
+Using the options portfolios from Problem3 last week (named problem2.csv in this week’s repo) and
+assuming :
+
+\begin{itemize}
+    \item American Options
+    \item Current Date 03/03/2023
+    \item Current AAPL price is 151.03
+    \item Risk Free Rate of 4.25\%
+    \item Dividend Payment of \$1.00 on 3/15/2023
+\end{itemize}
+
+Using DailyPrices.csv. Fit a Normal distribution to AAPL returns 
+\begin{itemize}
+    \item  assume 0 mean return.
+\end{itemize}
+
+ Simulate AAPL returns 10 days ahead and apply those returns to the current AAPL price (above). Calculate Mean, VaR and ES.
+
+Calculate VaR and ES using Delta-Normal.
+
+Present all VaR and ES values a \$ loss, not percentages.
+
+Compare these results to last week's results.
+
+    
+\section*{\textcolor{orange}{Answer}}
+
+Use Normal distribution to simulate the returns 10 days ahead, apply those returns to the current AAPL price and we get the following:
+
+\newpage
+\begin{table}[htbp]
+    \centering
+    \caption{Normal Simulated Portfolio Value 10 Days Later For American Option}
+    \begin{tabular}{@{}ccccc@{}}
+    \toprule
+                 & Mean(Portfolio Value) & Mean(Change) & VaR       & ES        \\ \midrule
+    Straddle     & 13.573306             & 2.034698     & 1.175029  & 1.221071  \\
+    SynLong      & 1.756892              & -0.163474    & 17.931696 & 22.04644  \\
+    CallSpread   & 4.503748              & 0.034049     & 3.760683  & 4.071643  \\
+    PutSpread    & 3.426409              & 0.508251     & 2.670079  & 2.794192  \\
+    Stock        & 151.392764            & 0.362764     & 16.740359 & 20.588025 \\
+    Call         & 7.665099              & 0.935612     & 5.97523   & 6.309565  \\
+    Put          & 5.908207              & 1.099086     & 4.495994  & 4.656884  \\
+    CoveredCall  & 146.359195            & -0.595879    & 12.87181  & 16.616972 \\
+    ProtectedPut & 155.276754            & 1.22444      & 7.485625  & 7.832187  \\ \bottomrule
+    \end{tabular}
+    \end{table}
+
+
+\begin{table}[htbp]
+    \centering
+    \caption{AR1 Simulated Portfolio Value 10 Days Later For European Option}
+    \begin{tabular}{@{}ccccc@{}}
+        \toprule
+        \textbf{Portfolio} & \textbf{Mean(Portfolio Value)} & \textbf{Mean(Variation)} & \textbf{VaR} & \textbf{ES}\\
+        \midrule
+        Straddle     &             13.236627 &     1.586627 &   1.378317 &   1.387136 \\
+        SynLong      &              2.050838 &     0.100838 &   16.24976 &  19.975054 \\
+        CallSpread   &              4.519231 &    -0.070769 &    3.89146 &   4.181353 \\
+        PutSpread    &              3.292349 &     0.282349 &     2.6562 &   2.811006 \\
+        Stock        &            151.334622 &     0.304622 &  16.007244 &  19.710478 \\
+        Call         &              7.643733 &     0.843733 &   6.039037 &   6.362422 \\
+        Put          &              5.592895 &     0.742895 &   4.401389 &   4.601255 \\
+        CoveredCall  &            146.323396 &    -0.656604 &  12.191148 &  15.780425 \\
+        ProtectedPut &            154.976053 &     0.936053 &   8.074428 &   8.681969 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Here, we could find that almost all the portfolio of American Options values more than European Options. The Sensitivity between the two is very small.
+
+
+\section*{\textcolor{orange}{Problem 3}}
+
+Use the Fama French 3 factor return time series (F-F\_Research\_Data\_Factors\_daily.CSV) as well as the Carhart Momentum time series (F-F\_Momentum\_Factor\_daily.CSV) to fit a 4 factor model to the following stocks.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+    AAPL  & FB    & UNH & MA   \\ \hline
+    MSFT  & NVDA  & HD  & PFE  \\ \hline
+    AMZN  & BRK-B & PG  & XOM  \\ \hline
+    TSLA  & JPM   & V   & DIS  \\ \hline
+    GOOGL & JNJ   & BAC & CSCO \\ \hline
+    \end{tabular}
+\end{table}
+
+Fama stores values as percentages, you will need to divide by 100 (or multiply the stock returns by 100) to get like units.
+
+Based on the past 10 years of factor returns, find the expected annual return of each stock.
+
+Construct an annual covariance matrix for the 10 stocks.
+
+Assume the risk free rate is 0.0425. Find the super efficient portfolio.
+
+\section*{\textcolor{orange}{Answer}}
+
+Use Fama French 3 factor and Carhart Carhart Momentum to fit the 4 factor model and based on the past 10 years of factor returns, we get the expected annual return of each stock like following:
+
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    AAPL    & META    & UNH     & MA      \\ \hline
+    23.06\% & 7.65\%  & 20.39\% & 19.70\% \\ \hline
+    MSFT    & NVDA    & HD      & PFE     \\ \hline
+    22.39\% & 22.36\% & 16.92\% & 15.63\% \\ \hline
+    AMZN    & BRK-B   & PG      & XOM     \\ \hline
+    33.89\% & 14.39\% & 17.60\% & 8.61\%  \\ \hline
+    TSLA    & JPM     & V       & DIS     \\ \hline
+    11.82\% & 13.41\% & 18.70\% & 11.94\% \\ \hline
+    GOOGL   & JNJ     & BAC     & CSCO    \\ \hline
+    29.18\% & 11.21\% & 13.59\% & 21.78\% \\ \hline
+    \end{tabular}
+\end{table}
+
+Then we optimize the portfolio sharpe ratio to find the super efficient portfolio.
+
+The best sharpe ratio is 0.832215456951802
+
+Here is the weight of each asset:
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|l|l|l|l|}
+    \hline
+           & \textbf{AAPL}  & \textbf{META}  & \textbf{UNH} & \textbf{MA}   \\ \hline
+    Weight & 0              & 0              & 37\%         & 0             \\ \hline
+           & \textbf{MSFT}  & \textbf{NVDA}  & \textbf{HD}  & \textbf{PFE}  \\ \hline
+    Weight & 0              & 0              & 0            & 0             \\ \hline
+           & \textbf{AMZN}  & \textbf{BRK-B} & \textbf{PG}  & \textbf{XOM}  \\ \hline
+    Weight & 10\%           & 0              & 28\%         & 0             \\ \hline
+           & \textbf{TSLA}  & \textbf{JPM}   & \textbf{V}   & \textbf{DIS}  \\ \hline
+    Weight & 0              & 0              & 0            & 0             \\ \hline
+           & \textbf{GOOGL} & \textbf{JNJ}   & \textbf{BAC} & \textbf{CSCO} \\ \hline
+    Weight & 17\%           & 0              & 0            & 8\%          \\ \hline
+    \end{tabular}
+\end{table}
+ 
+
+\end{document}
