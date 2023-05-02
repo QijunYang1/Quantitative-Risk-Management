@@ -71,9 +71,24 @@ class T_fitter:
 
 '''
 ===============================================================================================================
-VaR for an Asset
+VaR for an Asset (Normal, Normal+EWMA, Generalized T, AR(1), Historical Simulation)
 ===============================================================================================================
 '''
+'''
+Fitted Fit Generalized T Distribution (helper function for VaR)
+'''
+class T_fitter:
+    '''T distribution MEL fitter'''
+    def ll_t(self,parameter,x):
+        # log likelihood 
+        ll=np.sum(stats.t.logpdf(x=x,df=parameter[0],loc=0,scale=parameter[1])) # assume mean to be 0
+        return -ll
+
+    def MLE(self,x):
+        cons=[ {'type':'ineq', 'fun':lambda x:x[1]} ] # standard deviation is non-negative
+        parameter = np.array([x.size-1,1])
+        MLE = minimize(self.ll_t, parameter, args = x, constraints = cons) # MLE
+        return MLE.x
 
 class VaR:
     ''' Calculate the VaR of 1D array or dataframe of return due to specific distribution 
@@ -236,7 +251,6 @@ class VaR:
         return VaR
         
 
-
 '''
 ===============================================================================================================
 VaR for Portfolio
@@ -244,19 +258,20 @@ VaR for Portfolio
 '''
 
 class VaR_portfolio:
-    '''
-    Differnet Method to get the VaR of stock portfolio
+    '''Differnet Method to get the VaR of stock portfolio
     
-    1. delta_normal
-    2. normal_MC
-    3. historical_simulation
+        1. delta_normal
+        2. normal_MC
+        3. historical_simulation
+        4. Copula_MC
 
-    The fromat of portfolio, returns, price should be same as the file in the current directory.
+        The fromat of portfolio, returns, price should be same as the file in the current directory.
 
-    Usage:
-        All=VaR_portfolio(portfolio,rt,price).delta_normal(0.05)
-        All=VaR_portfolio(portfolio,rt,price).normal_MC(plot=True,p_name='All')
-        All=VaR_portfolio(portfolio,rt,price).historical_simulation(plot=True,p_name='All')
+        Usage:
+            All=VaR_portfolio(portfolio,rt,price).delta_normal(0.05)
+            All=VaR_portfolio(portfolio,rt,price).normal_MC(plot=True,p_name='All')
+            All=VaR_portfolio(portfolio,rt,price).historical_simulation(plot=True,p_name='All')
+            All=VaR_portfolio(portfolio,rt,price).Copula_MC(T_mean0,plot=True,p_name='All')
 
     '''
     # initialization
@@ -381,9 +396,6 @@ class VaR_portfolio:
             plt.legend(['MC simulation kde','VaR'])
         return VaR_p
 
-
-
-
     def historical_simulation(self,alpha=0.05,draw_num=10000,plot=False,p_name='',VaROption='Absolute'):
         ''' Use historical returns as dataset, draw sample from it to simulate the 
             potential loss (VaR)
@@ -444,7 +456,6 @@ class VaR_portfolio:
             plt.legend(['Historical simulation kde','VaR'])
 
         return VaR_p
-
 
     def Copula_MC(self,dist,alpha=0.05,draw_num=10000,pct=1,plot=False,VaROption='Absolute',p_name=''):
         ''' Use Copula Monte Carlo Methods(PCA) to simulate the price of each stock of portfolio
