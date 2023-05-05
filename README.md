@@ -1,2 +1,137 @@
-# Fintech-545
-Here is my project about Quantitative Risk Management.
+# Fintech-545 Quantitative Risk Management
+
+Quantitative Risk Management offers a hands-on introduction to the science and implementation of risk analytics. Topics include probability theory, regression and time series analysis, risk metrics such as Value at Risk and Excepted Shortfall, derivative valuation methods, stress testing and scenario analysis, factor models, and portfolio construction and optimization.
+
+## Course Content:
+- ### Week1 - Univariate Stats
+    - What is Risk Management
+    - Type of Risk
+    - Univariate Statistics — PDF, CDF, Quantile Function, Distribution moments
+    - Properties of Common Distributions
+        - Normal or Gaussian Distribution
+        - Lognormal Distribution
+        - Student’s-t Distribution
+- ### Week2 -  Multivariate and Regression
+    - Multivariate Statistics — Covariance, Correlation(Pearson & Spearman’s rank coefficient)
+    - Multivariate Normal Distribution & its Conditional Distributions
+    - Regression (Assumptions, OLS, MLE)
+    - Goodness of Fit ($R^2$) & Information Criteria(AIC, BIC)
+    - Time Series
+        - Autocovariance, Autocorrelation, and Partial Autocorrelation
+        - MA, AR, ARMA, ARMAX, VARMAX, GARCH Models
+- ### Week3 - Financial Data and Monte Carlo
+    - Probability integral transform(universality of the uniform) — using quantile function, inverse CDF
+    - Multivariate Draw Algorithm
+    - Cholesky Factorization — positive definite (PD) & positive semi-definite (PSD) Matrix
+    - Missing Data —  reason & solution
+    - Covariance Matrix Generation Techniques
+        - Default covariance function
+        - Pair wise estimation
+        - EWMA
+        - EM algorithm
+        - HighFrequencyCovariance
+        - GARCH
+        - …
+    - Dealing with Non-PSD Matrices
+        - Rebonato and Jackel (1999 [https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1969689](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1969689))
+        - Higham (2002 [https://www.maths.manchester.ac.uk/~higham/narep/narep369.pdf](https://www.maths.manchester.ac.uk/~higham/narep/narep369.pdf))
+    - Principal Component Analysis (PCA)
+    - Simulating from Models
+- ### Week4 - VaR
+    - Financial Data, Returns, and Total Returns (Brownian Motion, Arithmetic Return, Geometric Brownian Motion, ADJ CLOSE)
+    - Value at Risk (VaR)
+    - Criticisms of VaR (not sub-additive…)
+    - Method to Calculate VaR (for single asset & single time period)
+        - Delta Normal VaR (Parametric VaR)
+        - Normal Monte Carlo VaR
+        - Historical VaR
+    - For Time Periods Larger than 1 - Adjustment
+- ### Week5 - Advanced VaR and Expected Shortfall
+    - Expected Shortfall (CVaR)
+        - coherent risk measure
+        - convex surface
+    - Model Based Simulation
+    - Copulas - Breaking the Normality Assumption
+        - Sklar’s Theorem - multivariate CDF can be expressed by in terms of its marginal distributions & some copula
+    - Gaussian Copula - Fitting the copula, Simulating from the Copula
+- ### Week6 - Options
+    - Time Value of Money and the Risk Free Rate
+    - Arbitrage, Present and Future Value
+    - Options
+    - Option Terms (call, put, underlying, strike,Maturity or Expiration Date
+    , Time to Maturity, European, American, Bermuda, Asian, Physical Settlement, Financial (or Cash) Settlement, Implied Volatility, payoff, Moneyness)
+    - Option Valuation
+        - Numerical Integral (European)
+        - Generalized Black Scholes Model (European)
+        - European Binomial Trees
+    - Put Call Parity
+    - Implied Volatility
+- ### Week7 - Options and Portfolio Construction
+    - American Options
+        - American Binomial Tree
+    - American Options with Discrete Dividends
+        - American Binomial Tree
+    - The Greeks (Delta, Gamma, Vega, Theta, Rho, Carry Rho..)
+        - Hedging
+        - Formula For Greeks (European)
+        - Finite Difference ([Automatic Differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation))
+            - Backward, Forward and Central Difference
+    - Portfolio Construction
+        - Markowitz [Efficient Frontier](https://en.wikipedia.org/wiki/Modern_portfolio_theory)
+        - Capital Asset Pricing Model (CAPM)
+        - Sharpe Ratio, capital market line (CML)
+        - Efficient Market Hypothesis (EMH) — market portfolio is the portfolio of all assets weighted by their current market capitalization
+        - Arbitrage Pricing Theory (APT)
+        - Extensions to CAPM
+            - Fama–French 3-factor model (MRK Premium, SMB, HML factors)
+            - Carhart 4-factor model (three-factor + UMD) - Monthly Momentum Factor(MOM)
+            - Fama–French 5-factor model(three-factor + RMW + CMA)
+- ### Week8 - Attribution and Risk Parity
+    - Risk and Return Attribution
+        - Ex-Post or Ex-Ante
+        - Return Attribution
+            - Calculating Weights Through Time
+            - Cariño’s K
+        - Risk Attribution (portfolio volatility)
+    - Attribution to a Factor
+        - portfolio Alpha
+    - Risk Budgeting and Risk Parity
+        - Risk Budgeting
+        - Risk Parity
+    - Risk Parity with NonEqual Risk Budgets
+    - NonNormal Risk Parity
+        - Expected Shortfall
+            - Finite Differences + Simulated Returns
+            - Optimization
+            
+Risk_management package concludes a quantitative risk management library
+
+
+## Weekly Project:
+- [week02](Week02/Project2.pdf):
+  - Distribution moments;
+  - Regression, OLS, MLE, T errors, AIC, BIC, $R^2$; 
+  - ARMA, ACF, PACF
+- [week03](Week03/week3.pdf):
+  - EWMA, PCA, Covariance; 
+  - Cholesky Fatoriaztion, Non-PSD Matrices Fix Method; 
+  - PCA simulation, Covariance Matrix Generation Techniques
+- [week04](Week04/week4.pdf):
+  - Different Returns, Monte Carlo simulation; 
+  - VaR Using Different Distribution & Methods; 
+  - Portfolio VaR, Delta Normal VaR; Simulation VaR (EWMA Covariance + PCA Normal MC Simulation); Historical Simulation
+- [week05](Week05/wee5.pdf):
+  - ES & VaR, T by MLE fit; 
+  - Portfolio VaR, Generalized t distribution, Gaussian Copula Simulation
+- [week06](Week06/Project_week06.pdf):
+  - Black-Scholes Model, Implied Volatility, Option Valuation;
+  - Volatility Simle, Fat tail;
+  - Option Strategy; Payoff, AR, MC Simulation, Put-Call Parity, Portfolio VaR & ES, Risk Analysis
+- [week07](Week07/wee07.pdf):
+  - Generalized Black-Scholes Model, Binomial Tree, Finite Difference, American Options, Dividends, Greek; 
+  - MC Simulation, ES, VaR, Delta Normal Method; 
+  - Carhart 4-factor model; Expected Annual Returns, Efficient Frontier, Super Efficient Portfolio
+- [week08](Week08/Risk_Attribution.ipynb):
+  - Optimal Sharpe Ratio Portfolio, Carhart 4-factor model, Realized Return Attribution, Realized Volatility Attribution;
+  - Factor Attribution, Realized Factor Volatility Attribution;
+  - T Distribution, Copula, Volatility Risk Parity Portfolio, ES Risk Parity Portfolio
