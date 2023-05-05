@@ -104,9 +104,6 @@ Quantitative Risk Management offers a hands-on introduction to the science and i
             - Finite Differences + Simulated Returns
             - Optimization
             
-Risk_management package concludes a quantitative risk management library
-
-
 ## Weekly Project:
 - [week02](Week02/Project2.pdf):
   - Distribution moments;
@@ -135,3 +132,6 @@ Risk_management package concludes a quantitative risk management library
   - Optimal Sharpe Ratio Portfolio, Carhart 4-factor model, Realized Return Attribution, Realized Volatility Attribution;
   - Factor Attribution, Realized Factor Volatility Attribution;
   - T Distribution, Copula, Volatility Risk Parity Portfolio, ES Risk Parity Portfolio
+  
+## RiskPackage
+- RiskPackage is self-made Python package for fast risk analysis for various assets and portfolios.
