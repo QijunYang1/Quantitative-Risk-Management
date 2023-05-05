@@ -109,26 +109,26 @@ Quantitative Risk Management offers a hands-on introduction to the science and i
   - Distribution moments;
   - Regression, OLS, MLE, T errors, AIC, BIC, $R^2$; 
   - ARMA, ACF, PACF
-- [week03](Week03/week3.pdf):
+- [week03](week03/week3.pdf):
   - EWMA, PCA, Covariance; 
   - Cholesky Fatoriaztion, Non-PSD Matrices Fix Method; 
   - PCA simulation, Covariance Matrix Generation Techniques
-- [week04](Week04/week4.pdf):
+- [week04](week04/week4.pdf):
   - Different Returns, Monte Carlo simulation; 
   - VaR Using Different Distribution & Methods; 
   - Portfolio VaR, Delta Normal VaR; Simulation VaR (EWMA Covariance + PCA Normal MC Simulation); Historical Simulation
-- [week05](Week05/wee5.pdf):
+- [week05](week05/wee5.pdf):
   - ES & VaR, T by MLE fit; 
   - Portfolio VaR, Generalized t distribution, Gaussian Copula Simulation
-- [week06](Week06/Project_week06.pdf):
+- [week06](week06/Project_week06.pdf):
   - Black-Scholes Model, Implied Volatility, Option Valuation;
   - Volatility Simle, Fat tail;
   - Option Strategy; Payoff, AR, MC Simulation, Put-Call Parity, Portfolio VaR & ES, Risk Analysis
-- [week07](Week07/wee07.pdf):
+- [week07](week07/wee07.pdf):
   - Generalized Black-Scholes Model, Binomial Tree, Finite Difference, American Options, Dividends, Greek; 
   - MC Simulation, ES, VaR, Delta Normal Method; 
   - Carhart 4-factor model; Expected Annual Returns, Efficient Frontier, Super Efficient Portfolio
-- [week08](Week08/Risk_Attribution.ipynb):
+- [week08](week08/Risk_Attribution.ipynb):
   - Optimal Sharpe Ratio Portfolio, Carhart 4-factor model, Realized Return Attribution, Realized Volatility Attribution;
   - Factor Attribution, Realized Factor Volatility Attribution;
   - T Distribution, Copula, Volatility Risk Parity Portfolio, ES Risk Parity Portfolio
