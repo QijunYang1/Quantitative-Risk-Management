@@ -1,137 +1,67 @@
-# Fintech-545 Quantitative Risk Management
+# Quantitative Risk Management Coursework
 
-Quantitative Risk Management offers a hands-on introduction to the science and implementation of risk analytics. Topics include probability theory, regression and time series analysis, risk metrics such as Value at Risk and Excepted Shortfall, derivative valuation methods, stress testing and scenario analysis, factor models, and portfolio construction and optimization.
+## Introduction
+This repository documents my journey and projects undertaken in a Quantitative Risk Management course. It emphasizes the application of statistical methods for managing market risks in single assets and portfolios, including those comprising options and stocks.
 
-## Course Content:
-- ### Week1 - Univariate Stats
-    - What is Risk Management
-    - Type of Risk
-    - Univariate Statistics — PDF, CDF, Quantile Function, Distribution moments
-    - Properties of Common Distributions
-        - Normal or Gaussian Distribution
-        - Lognormal Distribution
-        - Student’s-t Distribution
-- ### Week2 -  Multivariate and Regression
-    - Multivariate Statistics — Covariance, Correlation(Pearson & Spearman’s rank coefficient)
-    - Multivariate Normal Distribution & its Conditional Distributions
-    - Regression (Assumptions, OLS, MLE)
-    - Goodness of Fit ($R^2$) & Information Criteria(AIC, BIC)
-    - Time Series
-        - Autocovariance, Autocorrelation, and Partial Autocorrelation
-        - MA, AR, ARMA, ARMAX, VARMAX, GARCH Models
-- ### Week3 - Financial Data and Monte Carlo
-    - Probability integral transform(universality of the uniform) — using quantile function, inverse CDF
-    - Multivariate Draw Algorithm
-    - Cholesky Factorization — positive definite (PD) & positive semi-definite (PSD) Matrix
-    - Missing Data —  reason & solution
-    - Covariance Matrix Generation Techniques
-        - Default covariance function
-        - Pair wise estimation
-        - EWMA
-        - EM algorithm
-        - HighFrequencyCovariance
-        - GARCH
-        - …
-    - Dealing with Non-PSD Matrices
-        - Rebonato and Jackel (1999 [https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1969689](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1969689))
-        - Higham (2002 [https://www.maths.manchester.ac.uk/~higham/narep/narep369.pdf](https://www.maths.manchester.ac.uk/~higham/narep/narep369.pdf))
-    - Principal Component Analysis (PCA)
-    - Simulating from Models
-- ### Week4 - VaR
-    - Financial Data, Returns, and Total Returns (Brownian Motion, Arithmetic Return, Geometric Brownian Motion, ADJ CLOSE)
-    - Value at Risk (VaR)
-    - Criticisms of VaR (not sub-additive…)
-    - Method to Calculate VaR (for single asset & single time period)
-        - Delta Normal VaR (Parametric VaR)
-        - Normal Monte Carlo VaR
-        - Historical VaR
-    - For Time Periods Larger than 1 - Adjustment
-- ### Week5 - Advanced VaR and Expected Shortfall
-    - Expected Shortfall (CVaR)
-        - coherent risk measure
-        - convex surface
-    - Model Based Simulation
-    - Copulas - Breaking the Normality Assumption
-        - Sklar’s Theorem - multivariate CDF can be expressed by in terms of its marginal distributions & some copula
-    - Gaussian Copula - Fitting the copula, Simulating from the Copula
-- ### Week6 - Options
-    - Time Value of Money and the Risk Free Rate
-    - Arbitrage, Present and Future Value
-    - Options
-    - Option Terms (call, put, underlying, strike,Maturity or Expiration Date
-    , Time to Maturity, European, American, Bermuda, Asian, Physical Settlement, Financial (or Cash) Settlement, Implied Volatility, payoff, Moneyness)
-    - Option Valuation
-        - Numerical Integral (European)
-        - Generalized Black Scholes Model (European)
-        - European Binomial Trees
-    - Put Call Parity
-    - Implied Volatility
-- ### Week7 - Options and Portfolio Construction
-    - American Options
-        - American Binomial Tree
-    - American Options with Discrete Dividends
-        - American Binomial Tree
-    - The Greeks (Delta, Gamma, Vega, Theta, Rho, Carry Rho..)
-        - Hedging
-        - Formula For Greeks (European)
-        - Finite Difference ([Automatic Differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation))
-            - Backward, Forward and Central Difference
-    - Portfolio Construction
-        - Markowitz [Efficient Frontier](https://en.wikipedia.org/wiki/Modern_portfolio_theory)
-        - Capital Asset Pricing Model (CAPM)
-        - Sharpe Ratio, capital market line (CML)
-        - Efficient Market Hypothesis (EMH) — market portfolio is the portfolio of all assets weighted by their current market capitalization
-        - Arbitrage Pricing Theory (APT)
-        - Extensions to CAPM
-            - Fama–French 3-factor model (MRK Premium, SMB, HML factors)
-            - Carhart 4-factor model (three-factor + UMD) - Monthly Momentum Factor(MOM)
-            - Fama–French 5-factor model(three-factor + RMW + CMA)
-- ### Week8 - Attribution and Risk Parity
-    - Risk and Return Attribution
-        - Ex-Post or Ex-Ante
-        - Return Attribution
-            - Calculating Weights Through Time
-            - Cariño’s K
-        - Risk Attribution (portfolio volatility)
-    - Attribution to a Factor
-        - portfolio Alpha
-    - Risk Budgeting and Risk Parity
-        - Risk Budgeting
-        - Risk Parity
-    - Risk Parity with NonEqual Risk Budgets
-    - NonNormal Risk Parity
-        - Expected Shortfall
-            - Finite Differences + Simulated Returns
-            - Optimization
-            
-## Weekly Project:
-- [week02](Week02/Project2.pdf):
-  - Distribution moments;
-  - Regression, OLS, MLE, T errors, AIC, BIC, $R^2$; 
-  - ARMA, ACF, PACF
-- [week03](week03/week3.pdf):
-  - EWMA, PCA, Covariance; 
-  - Cholesky Fatoriaztion, Non-PSD Matrices Fix Method; 
-  - PCA simulation, Covariance Matrix Generation Techniques
-- [week04](week04/week4.pdf):
-  - Different Returns, Monte Carlo simulation; 
-  - VaR Using Different Distribution & Methods; 
-  - Portfolio VaR, Delta Normal VaR; Simulation VaR (EWMA Covariance + PCA Normal MC Simulation); Historical Simulation
-- [week05](week05/wee5.pdf):
-  - ES & VaR, T by MLE fit; 
-  - Portfolio VaR, Generalized t distribution, Gaussian Copula Simulation
-- [week06](week06/Project_week06.pdf):
-  - Black-Scholes Model, Implied Volatility, Option Valuation;
-  - Volatility Simle, Fat tail;
-  - Option Strategy; Payoff, AR, MC Simulation, Put-Call Parity, Portfolio VaR & ES, Risk Analysis
-- [week07](week07/wee07.pdf):
-  - Generalized Black-Scholes Model, Binomial Tree, Finite Difference, American Options, Dividends, Greek; 
-  - MC Simulation, ES, VaR, Delta Normal Method; 
-  - Carhart 4-factor model; Expected Annual Returns, Efficient Frontier, Super Efficient Portfolio
-- [week08](week08/Risk_Attribution.ipynb):
-  - Optimal Sharpe Ratio Portfolio, Carhart 4-factor model, Realized Return Attribution, Realized Volatility Attribution;
-  - Factor Attribution, Realized Factor Volatility Attribution;
-  - T Distribution, Copula, Volatility Risk Parity Portfolio, ES Risk Parity Portfolio
-  
-## RiskPackage
-- RiskPackage is self-made Python package for fast risk analysis for various assets and portfolios.
+## Weekly Projects
+Each week of the course focused on a distinct aspect of risk management, culminating in a project that applied theoretical concepts to practical scenarios.
+
+### Week 2: Bias, Model Fitting, and Time Series Simulation
+- **Description**: Explored bias in skewness and kurtosis estimators, data fitting with OLS and MLE, and simulating AR and MA processes.
+- **Key Learnings**: Gained insights into statistical data fitting and time series model behavior.
+
+### Week 3: Exponentially Weighted Covariance Matrix and PCA
+- **Description**: Computed exponentially weighted covariance matrices for stock returns, analyzed using PCA.
+- **Key Learnings**: Understood the impact of lambda values on the covariance matrix and data representation.
+
+### Week 4: Price Simulations and VaR Calculations
+- **Description**: Simulated price returns using various models and calculated VaR.
+- **Key Learnings**: Deepened knowledge of price simulation models and VaR calculation methods.
+
+### Week 5: Fitting Distributions and Risk Metrics
+- **Description**: Fitted Normal and Generalized T distributions to data; calculated VaR and ES.
+- **Key Learnings**: Learned the importance of distribution fitting in risk assessment.
+
+### Week 6: Option Valuation and Portfolio Strategies
+- **Description**: Analyzed call and put options under different implied volatilities; explored portfolio strategies.
+- **Key Learnings**: Gained practical experience in option valuation and strategy development.
+
+### Week 7: Advanced Options Analysis and Portfolio Optimization
+- **Description**: Implemented advanced options analysis techniques; developed a portfolio using the Fama-French 3 factor model.
+- **Key Learnings**: Enhanced understanding of options Greeks and portfolio optimization.
+
+### Week 8: Risk and Return Attribution
+- **Description**: Focused on risk and return attribution in portfolio management; covered advanced topics like risk budgeting.
+- **Key Learnings**: Gained comprehensive insights into risk and return attribution in portfolios.
+
+## Self-Made Risk Analysis Packages
+
+This suite of Python scripts demonstrates a range of functionalities from basic financial calculations to advanced risk assessments.
+
+### Python Scripts
+- **CalculateReturn.py**: Methods for calculating financial returns.
+- **CovarianceEstimation.py**: EWMA Covariance and Correlation Matrix calculation.
+- **ModelFitter.py**: Fitting Normal and Generalized T Distributions.
+- **NonPsdFixes.py**: Handling non-positive semi-definite matrices.
+- **PortfolioOptimization.py**: Super-efficient portfolio optimization.
+- **RiskMetrics.py**: Variety of risk metrics calculations.
+- **SimulationMethods.py**: Simulating asset prices and returns.
+- **Options.py**: Options pricing and Greeks calculations.
+
+### Use Cases (Use_case.ipynb)
+This notebook demonstrates the practical application of the package, including portfolio optimization, risk assessment, financial data simulations, and options analysis.
+
+## Technologies Used
+This repository extensively uses Python and its libraries like Pandas, NumPy, SciPy, Statsmodels, Matplotlib, and Seaborn for data analysis, financial modeling, and visualization.
+
+## How to Use This Repository
+- **Weekly Projects**: Detailed insights into each week's focus area.
+- **Risk Analysis Package**: Practical financial data analysis and modeling tools.
+- **Use Cases**: 'Use_case.ipynb' for real-world application demonstrations.
+- **Documentation**: Each script is well-documented for user guidance.
+
+## Reflections and Learning Outcomes
+The course and package development significantly enhanced my understanding of financial concepts, practical application of theoretical knowledge, technical proficiency, and critical thinking.
+
+## Contact
+[Contact Email](mailto:yqj1317@outook.com)
