@@ -48,7 +48,7 @@ This suite of Python scripts demonstrates a range of functionalities from basic 
 - **SimulationMethods.py**: Simulating asset prices and returns.
 - **Options.py**: Options pricing and Greeks calculations.
 
-### Use Cases (Use_case.ipynb)
+### Use Cases ([Use_case.ipynb](https://github.com/QijunYang1/Quantitative-Risk-Management/blob/main/MyRiskPackage/Use_case.ipynb))
 This notebook demonstrates the practical application of the package, including portfolio optimization, risk assessment, financial data simulations, and options analysis.
 
 ## Technologies Used
