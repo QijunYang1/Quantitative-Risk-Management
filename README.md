@@ -3,7 +3,7 @@
 ## Introduction
 This repository documents my journey and projects undertaken in a Quantitative Risk Management course. It emphasizes the application of statistical methods for managing market risks in single assets and portfolios, including those comprising options and stocks.
 
-## Weekly Projects
+## [Weekly Projects](https://github.com/QijunYang1/Quantitative-Risk-Management/tree/main/WeeeklyProjects)
 Each week of the course focused on a distinct aspect of risk management, culminating in a project that applied theoretical concepts to practical scenarios.
 
 ### Week 2: Bias, Model Fitting, and Time Series Simulation
@@ -34,7 +34,7 @@ Each week of the course focused on a distinct aspect of risk management, culmina
 - **Description**: Focused on risk and return attribution in portfolio management; covered advanced topics like risk budgeting.
 - **Key Learnings**: Gained comprehensive insights into risk and return attribution in portfolios.
 
-## Self-Made Risk Analysis Packages
+## [Self-Made Risk Analysis Packages](https://github.com/QijunYang1/Quantitative-Risk-Management/tree/main/MyRiskPackage)
 
 This suite of Python scripts demonstrates a range of functionalities from basic financial calculations to advanced risk assessments.
 
