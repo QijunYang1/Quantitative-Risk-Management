@@ -1,10 +1,9 @@
 # Project 7
  
 ## Guide
-  - [Project7 Code](https://github.com/QijunYang1/Fintech-545/blob/main/week07/week07.ipynb) is my code
-  - [Project7 Answer](https://github.com/QijunYang1/Fintech-545/blob/main/week07/wee07.pdf) is my answer
-  - [Project7 Requirement](https://github.com/QijunYang1/Fintech-545/blob/main/week07/Project%20Week07.pdf) is the reqiurement for this project
-  - [Project7 LaTex Code](https://github.com/QijunYang1/Fintech-545/blob/main/week07/wee07.tex) is tex code of my pdf.
+  - [Project7 Code](https://github.com/QijunYang1/Quantitative-Risk-Management/blob/main/WeeeklyProjects/week07/code/week07.ipynb) is my code
+  - [Project7 Answer](https://github.com/QijunYang1/Quantitative-Risk-Management/blob/main/WeeeklyProjects/week07/report/week07.pdf) is my answer
+  - [Project7 Requirement](https://github.com/QijunYang1/Quantitative-Risk-Management/blob/main/WeeeklyProjects/week07/Project%20Week07.pdf) is the reqiurement for this project
 
  
  ## Ways to run my code
