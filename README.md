@@ -1,9 +1,9 @@
-# Quantitative Risk Management Coursework
+# Duke Fintech545 Quantitative Risk Management Coursework
 
 ## Introduction
 This repository documents my journey and projects undertaken in a Quantitative Risk Management course. It emphasizes the application of statistical methods for managing market risks in single assets and portfolios, including those comprising options and stocks.
 
-## [Weekly Projects](https://github.com/QijunYang1/Quantitative-Risk-Management/tree/main/WeeeklyProjects)
+## Weekly Projects
 Each week of the course focused on a distinct aspect of risk management, culminating in a project that applied theoretical concepts to practical scenarios.
 
 ### Week 2: Bias, Model Fitting, and Time Series Simulation
